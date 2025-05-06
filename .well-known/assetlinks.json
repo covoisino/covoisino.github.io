@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.example.covoisino",
+    "sha256_cert_fingerprints":
+    ["48:0B:38:32:A7:71:52:A3:E5:79:DE:E6:5E:5B:6F:69:E6:0F:06:43:7F:48:AE:47:A1:C9:15:DB:C4:7D:96:6B"]
+  }
+}]
