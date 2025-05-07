@@ -4,18 +4,25 @@
   <meta charset="utf-8">
   <title>Opening App…</title>
   <script>
-    // parse ?referrer=...
+    // Parse ?code= parameter from URL
     const params = new URLSearchParams(window.location.search);
-    const ref = params.get('referrer');
-    // try to open app via custom‐scheme
-    if (ref) {
-      window.location = `myapp://referral?referrer=${encodeURIComponent(ref)}`;
+    const code = params.get('code');
+    
+    if (code) {
+      // Universal Link for iOS
+      window.location.href = `https://yourappdomain.com/referral?code=${encodeURIComponent(code)}`;
+      
+      // Custom scheme fallback for Android
+      setTimeout(() => {
+        window.location.href = `myapp://referral?code=${encodeURIComponent(code)}`;
+      }, 500);
     } else {
       document.write('Invalid referral link.');
     }
-    // if the app isn't installed, after 2s send to Play/App Store:
+
+    // Final app store fallback
     setTimeout(() => {
-      window.location = 'https://play.google.com/store/apps/details?id=com.your.app';
+      window.location.href = 'https://play.google.com/store/apps/details?id=com.your.app';
     }, 2000);
   </script>
 </head>
