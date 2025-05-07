@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Opening App…</title>
+  <script>
+    // parse ?referrer=...
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get('referrer');
+    // try to open app via custom‐scheme
+    if (ref) {
+      window.location = `myapp://referral?referrer=${encodeURIComponent(ref)}`;
+    } else {
+      document.write('Invalid referral link.');
+    }
+    // if the app isn't installed, after 2s send to Play/App Store:
+    setTimeout(() => {
+      window.location = 'https://play.google.com/store/apps/details?id=com.your.app';
+    }, 2000);
+  </script>
+</head>
+<body>
+  <p>Redirecting…</p>
+</body>
+</html>
