@@ -14,7 +14,7 @@
       
       // Custom scheme fallback for Android
       setTimeout(() => {
-        window.location.href = `myapp://referral?code=${encodeURIComponent(code)}`;
+        window.location.href = `covoisino://referral?code=${encodeURIComponent(code)}`;
       }, 500);
     } else {
       document.write('Invalid referral link.');
@@ -22,7 +22,7 @@
 
     // Final app store fallback
     setTimeout(() => {
-      window.location.href = 'https://play.google.com/store/apps/details?id=com.your.app';
+      window.location.href = 'https://play.google.com/store/apps/details?id=com.example.covoisino';
     }, 2000);
   </script>
 </head>
